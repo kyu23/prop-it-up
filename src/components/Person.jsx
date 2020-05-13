@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class Person extends Component{
-    render() {
+const Person = ({age, firstName, lastName, hairColor }) => {
 
-        const { firstName, lastName, age, hairColor } = this.props;
+    const [currentAge, setCurrentAge] = useState(age);
+
+    const raiseBirthday = () => {
+        setCurrentAge(age + 1)
+    };
 
         return(
             <div className="card">
@@ -11,13 +14,20 @@ class Person extends Component{
                 <div className="card-title">
                     {lastName}, {firstName}
                 </div>
-                <p className="card-text">Age: { age }</p>
+                <p className="card-text">Age: { currentAge }</p>
                 <p className="card-text">Hair Color: { hairColor }</p>
+                <button
+                    onClick = { raiseBirthday }
+                    className="btn"
+                    style = {{
+                        backgroundColor: "rebeccapurple",
+                        color:'#fff'}}
+                    >Raise Birthday</button>
             </div>
         </div>
         );
-    }
-}
+                    }
+
 
 
 export default Person;
