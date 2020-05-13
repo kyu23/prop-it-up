@@ -5,7 +5,7 @@ const Person = ({age, firstName, lastName, hairColor }) => {
     const [currentAge, setCurrentAge] = useState(age);
 
     const raiseBirthday = () => {
-        setCurrentAge(age + 1)
+        setCurrentAge(currentAge + 1);
     };
 
         return(
